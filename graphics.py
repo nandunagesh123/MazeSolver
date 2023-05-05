@@ -1,11 +1,11 @@
 from tkinter import Tk, BOTH, Canvas
 
-Class Window:
+class Window:
 
     def __init__(self,width,height):
         self.__root = Tk()
-        self.__title = sekf.__root.title("Maze Solver")
-        self.__Canvas = Canvas(self.__root,bg = "white",width,height)
+        self.__title = self.__root.title("Maze Solver")
+        self.__Canvas = Canvas(self.__root,bg = "white",width=width,height=height)
         self.__Canvas.pack()
         self.__Window_Running = False
         self.__root.protocol("WM_DELETE_WINDOW", self.close)
@@ -23,8 +23,26 @@ Class Window:
         
     def close(self):
         self.Window_Running = False
-        m
-        
+
+    def draw_line(self,line,fill_color="black"):
+        line.draw(self.__Canvas,fill_color)
+
+
+class Point:
+
+    def __init__(self,x,y):
+        self.x =x
+        self.y=y
+
+class Line:
+
+    def __init__(self,p1,p2):
+        self.p1 =p1
+        self.p2 = p2
+
+    def draw(self,Canvas,fill_color):
+        Canvas.create_line(self.p1.x, self.p1.y, self.p2.x, self.p2.y, fill=fill_color, width=2)
+        Canvas.pack(fill = BOTH,expand =1)
         
 
    
